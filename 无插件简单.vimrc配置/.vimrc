@@ -19,7 +19,7 @@ set laststatus=2
 set  ruler
 
 " 支持鼠标
-set mouse=a
+" set mouse=a
 
 " 当前文本使用uf8编码
 set encoding=utf-8  
@@ -31,7 +31,7 @@ set history=1000
 set number
 
 " 光标所在的当前行高亮
-set cursorline
+" set cursorline
 
 " 设置行宽，即一行显示多少个字符
 set textwidth=100
@@ -109,3 +109,6 @@ set autoread
 
 " 命令模式下，底部操作指令按下 Tab 键自动补全
 set wildmenu
+
+" Uncomment the following to have Vim jump to the last position when " reopening a file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
