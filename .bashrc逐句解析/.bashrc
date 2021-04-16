@@ -40,6 +40,10 @@ shopt -s checkwinsize
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
+# chroot: change root, 更改root目录
+# -r file 如果文件存在且可读返回ture
+# -z var 如果字符串的长度为零返回ture
+# The file /etc/debian_chroot is when you have a chrooted debian system inside another debian system (ubuntu is based on debian).
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -61,6 +65,8 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
+# -n var 如果字符串的长度不为零返回true
+
 
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -68,15 +74,7 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
-
-
-
-function git_branch() {
-    if [ -d .git ] ; then
-        printf "%s" "($(git branch 2> /dev/null | awk '/\*/{print $2}'))";
-    fi
-}
-
+# = : 检测两个字符串是否相等，相等返回 true
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -98,6 +96,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+# -x file 检测文件是否可执行，如果是，则返回 true
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -119,6 +118,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+# -f file 检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。
+# source 命令即 . 
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -130,4 +131,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# 启用bash可编程功能（比如启用之后Tab键能自动不全）
 
