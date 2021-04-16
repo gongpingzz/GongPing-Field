@@ -34,7 +34,10 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 # -x file  如果文件存在且可执行,返回true
-
+# && 表示当前一条命令执行成功时,执行后一条命令
+# ||表示当前一条命令执行失败时,才执行后一条命令
+# & 表示将任务置于后台运行
+# | 表示将前一条命令的输出，用作后一条命令的输入
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
