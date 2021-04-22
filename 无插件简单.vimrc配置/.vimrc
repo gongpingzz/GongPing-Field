@@ -112,3 +112,11 @@ set wildmenu
 
 " Uncomment the following to have Vim jump to the last position when " reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" 设置可粘贴
+set paste
+
+" 右下角显示行号等信息
+set ruler
+
+
