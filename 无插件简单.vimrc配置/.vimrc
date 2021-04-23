@@ -83,7 +83,7 @@ set hlsearch
 set incsearch
 
 " 搜索时忽略大小写
-set ignorecase
+" set ignorecase
 
 " 如果同时打开了ignorecase，那么对于只有一个大写字母的搜索词，将大小写敏感；其他情况都是大小写不敏感
 set smartcase
@@ -102,7 +102,7 @@ set autochdir
 set noerrorbells
 
 " 出错时，发出视觉提示，通常是屏幕闪烁
-set visualbell
+" set visualbell
 
 " 打开文件监视。如果在编辑过程中文件发生外部改变，就会发出提示。
 set autoread
