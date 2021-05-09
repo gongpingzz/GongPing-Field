@@ -136,3 +136,24 @@ if ! shopt -oq posix; then
 fi
 # 启用bash可编程功能（比如启用之后Tab键能自动不全）
 
+
+# add my custom prompt
+Black=$(tput setaf 0);
+Red=$(tput setaf 1);
+Green=$(tput setaf 2);
+Yellow=$(tput setaf 3);
+Blue=$(tput setaf 4);
+Purple=$(tput setaf 5);
+Cyan=$(tput setaf 6);
+White=$(tput setaf 7);
+bold=$(tput bold);
+reset=$(tput sgr0);
+
+PS1="\[\033]0;\w\007\]"; # Displays current working directory as title of the terminal
+PS1+="\[${bold}\]\[${Cyan}\]\T ";
+PS1+="\u at \h in "; # Displays username at hostname in
+PS1+="\[${Blue}\]\w"; # Displays base path of current working directory
+PS1+="\n"
+PS1+="\[${Red}\]-> \[${reset}\]";
+
+
