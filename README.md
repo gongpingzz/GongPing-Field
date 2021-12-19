@@ -2,7 +2,7 @@
 
 主要是鼓励自己多学习优秀的开源项目，并记录自己的学习历程。
 
-## 目录
+## 📖 目录
 | Project | Version | Article |
 |:-------:|:-------:|:------|
 | vim |  | [.vimrc](https://github.com/gongpingzz/GongPing-Field/blob/dc9a3433253e010634a308ef986d7c5ee7351aeb/content/vim/.vimrc) |
