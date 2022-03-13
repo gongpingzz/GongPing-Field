@@ -1,0 +1,12 @@
+- 客户机虚拟地址GVA（Guest Virtual Address）
+- 客户机物理地址GPA（Guest Physical Address）
+- 宿主机物理地址HPA（Host PhysicalAddress）
+- 扩展页表（Extended Page Table, EPT）
+- VMCS (Virtual-machineControl structure，虚拟机控制结构)
+- **PCI**(Peripheral Component Interconnect) 外设组件互连标准
+- （NFV）网络功能虚拟化
+- SPDK（Storage PerformanceDevelopment Kit）
+- IOPS
+- SCSI（Small Computer System Interface，小型计算机系统接口）协议
+- iSCSI（internet Small Computer System Interface）互联网小型计算机系统接口
+
