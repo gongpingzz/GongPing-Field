@@ -137,6 +137,27 @@ fi
 # 启用bash可编程功能（比如启用之后Tab键能自动不全）
 
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+alias ll="ls -lh"
+
+function git_branch {
+  branch="`git branch 2>/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"
+  if [ "${branch}" != "" ];then
+    if [ "${branch}" = "(no branch)" ];then
+      branch="(`git rev-parse --short HEAD`...)"
+    fi  
+    echo "$branch"
+  fi  
+}
+
+# User specific aliases and functions
+
 # add my custom prompt
 Black=$(tput setaf 0);
 Red=$(tput setaf 1);
@@ -150,10 +171,11 @@ bold=$(tput bold);
 reset=$(tput sgr0);
 
 PS1="\[\033]0;\w\007\]"; # Displays current working directory as title of the terminal
-PS1+="\[${bold}\]\[${Cyan}\]\T ";
-PS1+="\u at \h in "; # Displays username at hostname in
-PS1+="\[${Blue}\]\w"; # Displays base path of current working directory
+PS1+="\[${bold}\]\[${Cyan}\][\t] ";
+PS1+="\u@\h "; # Displays username at hostname in
+PS1+="\[${Blue}\]\w "; # Displays base path of current working directory
+PS1+="\[${Purple}\][$(git_branch)]"; # Displays git branch  
 PS1+="\n"
-PS1+="\[${Red}\]-> \[${reset}\]";
+PS1+="\[${Red}\]→ \[${reset}\]";
 
 
