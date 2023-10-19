@@ -156,6 +156,25 @@ function git_branch {
   fi  
 }
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+alias ll="ls -lh"
+
+function git_branch {
+  branch="`git branch 2>/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"
+  if [ "${branch}" != "" ];then
+    if [ "${branch}" = "(no branch)" ];then
+      branch="(`git rev-parse --short HEAD`...)"
+    fi  
+    echo "$branch"
+  fi  
+}
+
 # User specific aliases and functions
 
 # add my custom prompt
